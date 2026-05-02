@@ -287,6 +287,20 @@ function buildHeatmap(year) {
 
   //document.getElementById('hm-range').textContent = years.join(' · ');
 
+  // year labels at top
+  const spacer = document.createElement('div');
+  spacer.className = 'hm-lbl';
+  spacer.textContent = '';
+  grid.appendChild(spacer);
+
+  for (const y of years) {
+    const lbl = document.createElement('div');
+    lbl.className = 'hm-lbl-b';
+    lbl.textContent = y;
+    grid.appendChild(lbl);
+  }
+
+
   for (let m = 0; m < 12; m++) {
     const lbl = document.createElement('div');
     lbl.className = 'hm-lbl'; lbl.textContent = MONTHS[m];
@@ -321,30 +335,7 @@ function buildHeatmap(year) {
   // for (const y of years) {
   //   const lbl = document.createElement('div'); lbl.className = 'hm-lbl-b'; lbl.textContent = y; grid.appendChild(lbl);
   // }
-  // year labels at top
-    const spacer = document.createElement('div');
-    spacer.className = 'hm-lbl';
-    spacer.textContent = '';
-    grid.appendChild(spacer);
-
-    for (const y of years) {
-      const lbl = document.createElement('div');
-      lbl.className = 'hm-lbl-b';
-      lbl.textContent = y;
-      grid.appendChild(lbl);
-    }
-
-    // month rows
-    for (let m = 0; m < 12; m++) {
-      const lbl = document.createElement('div');
-      lbl.className = 'hm-lbl';
-      lbl.textContent = MONTHS[m];
-      grid.appendChild(lbl);
-
-      for (const y of years) {
-        // keep your existing cell code here
-      }
-    }
+  
 
 }
 
