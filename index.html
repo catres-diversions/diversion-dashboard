@@ -278,7 +278,7 @@ function buildHeatmap(year) {
   const years = year === 'all' ? Object.keys(DATA.heatmap).sort() : [String(year)];
   const cols = years.length;
   const grid = document.getElementById('hm-grid');
-  grid.style.gridTemplateColumns = `34px repeat(${cols}, 52px)`;
+  grid.style.gridTemplateColumns = `34px repeat(${cols}, 60px)`;
   grid.style.gridTemplateRows = ` 24px repeat(12, 30px)`;
   grid.innerHTML = '';
 
