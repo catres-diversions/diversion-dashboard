@@ -194,7 +194,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
     <!-- HEATMAP -->
     <div class="panel">
       <div class="ph"><span class="ph-title">Monthly Diverted Flights</span></div>
-      <div class="ph-sub" id="hm-range"></span></div>
+      <!--<div class="ph-sub" id="hm-range"></span></div>-->
       <div class="pb">
         <div id="hm-wrap"><div id="hm-grid"></div></div>
       </div>
@@ -277,14 +277,14 @@ function buildHeatmap(year) {
   const years = year === 'all' ? Object.keys(DATA.heatmap).sort() : [String(year)];
   const cols = years.length;
   const grid = document.getElementById('hm-grid');
-  grid.style.gridTemplateColumns = `28px repeat(${cols}, 48px)`;
-  grid.style.gridTemplateRows = `repeat(10, 24px) 24px`;
+  grid.style.gridTemplateColumns = `34px repeat(${cols}, 528px)`;
+  grid.style.gridTemplateRows = ` 24px repeat(10, 24px)`;
   grid.innerHTML = '';
 
   const allVals = years.flatMap(y => DATA.heatmap[y] || []);
   const maxVal = Math.max(...allVals, 1);
 
-  document.getElementById('hm-range').textContent = years.join(' · ');
+  //document.getElementById('hm-range').textContent = years.join(' · ');
 
   for (let m = 0; m < 12; m++) {
     const lbl = document.createElement('div');
