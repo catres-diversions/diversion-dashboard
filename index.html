@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Diversion Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #060b14; --surface: #0d1520; --surface2: #131e2e; --surface3: #1a2840;
+  --border: rgba(255,255,255,0.07); --text: #e8edf5; --muted: #5a6a80;
+  --accent: #3b82f6; --green: #22c55e; --amber: #f59e0b; --red: #ef4444;
+}
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow: hidden; }
+
+/* ── TOP BAR ── */
+#app { display: grid; grid-template-rows: 52px 1fr; height: 100vh; }
+#topbar {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 18px; gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+.brand-icon { width: 26px; height: 26px; background: var(--accent); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+#topbar h1 { font-size: 13px; font-weight: 600; }
+.kpi-strip { display: flex; gap: 2px; margin-left: 14px; }
+.kpill {
+  padding: 4px 12px; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 4px; display: flex; align-items: baseline; gap: 6px;
+}
+.kpill-v { font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700; }
+.kpill-l { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+.filters { display: flex; gap: 6px; margin-left: auto; align-items: center; }
+.filter-lbl { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
+.fbg { display: flex; gap: 2px; }
+.fbtn {
+  padding: 4px 10px; border-radius: 4px; font-size: 10px; font-family: 'Space Mono', monospace;
+  cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted);
+  transition: all 0.12s; letter-spacing: 0.04em;
+}
+.fbtn:hover { background: var(--surface2); color: var(--text); }
+.fbtn.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+/* ── MAIN GRID ── */
+#main {
+  display: grid;
+  grid-template-columns: 1fr 336px;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px; background: var(--border); overflow: hidden;
+}
+.panel { background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
+.ph { display: flex; align-items: baseline; gap: 8px; padding: 11px 14px 0; flex-shrink: 0; }
+.ph-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+.ph-sub { font-size: 9px; color: #2a3a50; margin-left: auto; font-family: 'Space Mono', monospace; }
+.pb { flex: 1; padding: 8px 12px; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+
+/* ── MAP ── */
+#panel-map { grid-row: 1 / 3; position: relative; }
+#map { flex: 1; width: 100%; min-height: 0; }
+.leaflet-container { background: #060b14; }
+.leaflet-tile { filter: brightness(0.45) saturate(0.25); }
+.leaflet-control-zoom { border: 1px solid var(--border) !important; border-radius: 5px !important; overflow: hidden; box-shadow: none !important; }
+.leaflet-control-zoom a { background: var(--surface) !important; color: var(--muted) !important; border-bottom: 1px solid var(--border) !important; width: 26px !important; height: 26px !important; line-height: 26px !important; font-size: 14px !important; }
+.leaflet-control-zoom a:hover { background: var(--surface2) !important; color: var(--text) !important; }
+.leaflet-control-attribution { background: rgba(6,11,20,0.8) !important; color: var(--muted) !important; font-size: 9px !important; }
+.leaflet-popup-content-wrapper { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); padding: 0; }
+.leaflet-popup-content { margin: 0 !important; width: auto !important; }
+.leaflet-popup-tip { background: var(--surface); }
+.leaflet-popup-close-button { color: var(--muted) !important; top: 6px !important; right: 8px !important; }
+.mpop { padding: 11px 13px; min-width: 155px; }
+.mpop-code { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+.mpop-row { display: flex; justify-content: space-between; font-size: 10px; padding: 3px 0; border-bottom: 1px solid var(--border); }
+.mpop-row:last-child { border: none; }
+.mpop-k { color: var(--muted); }
+.mpop-v { font-family: 'Space Mono', monospace; font-weight: 700; }
+
+#map-legend {
+  position: absolute; bottom: 10px; left: 10px; z-index: 1000;
+  background: rgba(13,21,32,0.92); border: 1px solid var(--border);
+  border-radius: 5px; padding: 8px 11px; font-size: 10px; color: var(--muted);
+  backdrop-filter: blur(4px);
+}
+.leg-row { display: flex; align-items: center; gap: 6px; padding: 2px 0; }
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── HEATMAP ── */
+#hm-wrap { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+#hm-grid {
+  flex: 1; min-height: 0;
+  display: grid;
+  gap: 2px;
+}
+.hm-cell {
+  border-radius: 2px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Mono', monospace; font-size: 8px; color: rgba(255,255,255,0.65);
+  cursor: default; transition: outline 0.1s;
+}
+.hm-cell:hover { outline: 1px solid rgba(255,255,255,0.5); z-index: 2; }
+.hm-lbl { font-size: 8px; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+.hm-lbl-b { font-size: 8px; color: var(--muted); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 1px; }
+
+/* tooltip */
+#hm-tip {
+  position: fixed; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px; padding: 5px 9px; font-size: 10px; pointer-events: none;
+  z-index: 9000; display: none; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  font-family: 'Space Mono', monospace;
+}
+
+/* ── AIRLINE PANEL ── */
+#airline-scroll { flex: 1; overflow-y: auto; }
+.al-item { display: flex; align-items: center; gap: 7px; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 11px; }
+.al-item:last-child { border: none; }
+.al-code { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; min-width: 26px; }
+.al-name { flex: 1; font-size: 10px; color: var(--muted); }
+.al-bar-wrap { width: 64px; height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+.al-bar { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+.al-count { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); min-width: 32px; text-align: right; }
+.al-hub { font-size: 9px; color: #2a3a50; min-width: 42px; text-align: right; white-space: nowrap; }
+
+/* hub sub-table */
+.hub-detail { background: var(--surface2); border-radius: 4px; padding: 8px 10px; margin-top: 8px; }
+.hub-row { display: flex; justify-content: space-between; font-size: 10px; padding: 3px 0; border-bottom: 1px solid var(--border); }
+.hub-row:last-child { border: none; }
+.hub-k { color: var(--muted); }
+.hub-v { font-family: 'Space Mono', monospace; font-weight: 600; }
+
+/* loading */
+#loading { position: fixed; inset: 0; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s; }
+#loading.done { opacity: 0; pointer-events: none; }
+#loading h2 { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 6px; }
+#loading p { font-size: 11px; color: var(--muted); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="loading"><h2>DIVERSION DASHBOARD</h2><p>Loading analytics data…</p></div>
+<div id="hm-tip"></div>
+
+<div id="app">
+  <div id="topbar">
+    <div class="brand">
+      <div class="brand-icon">✈</div>
+      <h1>Flight Diversion Analytics</h1>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpill"><span class="kpill-v" id="kpi-total">—</span><span class="kpill-l">Diversions</span></div>
+      <div class="kpill"><span class="kpill-v" id="kpi-daily">—</span><span class="kpill-l">Avg/Day</span></div>
+      <div class="kpill"><span class="kpill-v" id="kpi-airports">—</span><span class="kpill-l">Div Airports</span></div>
+      <div class="kpill"><span class="kpill-v" id="kpi-airlines">—</span><span class="kpill-l">Carriers</span></div>
+      <div class="kpill"><span class="kpill-v" id="kpi-delay">—</span><span class="kpill-l">Avg Dep Delay (min)</span></div>
+    </div>
+    <div class="filters">
+      <span class="filter-lbl">Year</span>
+      <div class="fbg" id="yr-btns"></div>
+    </div>
+  </div>
+
+  <div id="main">
+    <!-- MAP (spans 2 rows) -->
+    <div class="panel" id="panel-map">
+      <div class="ph">
+        <span class="ph-title" id="map-panel-title">Top Diversion Airports</span>
+        <span class="ph-sub">Bubble = diversion count</span>
+        <div class="map-view-toggle" style="margin-left:auto;display:flex;gap:2px">
+          <button class="fbtn active" id="mvt-div" onclick="setMapView('div')" style="padding:3px 8px;font-size:9px">Diversion Airports</button>
+          <button class="fbtn" id="mvt-dest" onclick="setMapView('dest')" style="padding:3px 8px;font-size:9px">Destination Airports</button>
+        </div>
+      </div>
+      <div class="pb" style="padding:6px 0 0 0"><div id="map"></div></div>
+      <div id="map-legend">
+        <div class="leg-row"><div class="leg-dot" style="background:var(--red)"></div> High volume</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--amber)"></div> Medium volume</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--green)"></div> Lower volume</div>
+      </div>
+    </div>
+
+    <!-- HEATMAP -->
+    <div class="panel">
+      <div class="ph"><span class="ph-title">Monthly Diversions</span><span class="ph-sub" id="hm-range"></span></div>
+      <div class="pb">
+        <div id="hm-wrap"><div id="hm-grid"></div></div>
+      </div>
+    </div>
+
+    <!-- AIRLINES -->
+    <div class="panel">
+      <div class="ph"><span class="ph-title">Diversions by Carrier</span><span class="ph-sub">Hub div % · top div airports</span></div>
+      <div class="pb" style="padding-bottom:0">
+        <div id="airline-scroll"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let DATA = {};
+let activeYear = 'all';
+let mapView = 'div'; // 'div' = diversion airports, 'dest' = destination airports
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// ── MAP ──────────────────────────────────────────────────────────────────────
+// Renders proportionally sized, color-coded bubbles for the top 15 airports.
+// mapView controls whether diversion airports or destination airports are shown.
+// Bubble size and color reflect actual per-year counts from the JSON.
+const map = L.map('map', { center: [38.5, -96], zoom: 4, zoomControl: true });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO', subdomains: 'abcd', maxZoom: 18
+}).addTo(map);
+let mapMarkers = L.layerGroup().addTo(map);
+
+function setMapView(view) {
+  mapView = view;
+  document.getElementById('mvt-div').classList.toggle('active', view === 'div');
+  document.getElementById('mvt-dest').classList.toggle('active', view === 'dest');
+  document.getElementById('map-panel-title').textContent =
+    view === 'div' ? 'Top Diversion Airports' : 'Top Destination Airports';
+  map.setView([38.5, -96], 4);
+  buildMap(activeYear);
+}
+
+function buildMap(year) {
+  mapMarkers.clearLayers();
+
+  // Select dataset based on current map view
+  const airports = mapView === 'div' ? DATA.divAirports : DATA.destAirports;
+  console.log('mapView:', mapView, 'airports:', airports ? airports.length : 'null');
+  if (!airports || airports.length === 0) return;
+
+  const counts = airports.map(ap => {
+    if (year === 'all') return ap.count;
+    return (ap.yearly && ap.yearly[String(year)]) ? ap.yearly[String(year)] : 0;
+  });
+  const nonZero = counts.filter(c => c > 0);
+  if (nonZero.length === 0) return;
+  const maxC = Math.max(...nonZero);
+
+  const popupLabel = mapView === 'div' ? 'Diversions accepted' : 'Diversions intended here';
+
+  airports.forEach((ap, i) => {
+    const c = counts[i];
+    if (c === 0) return;
+    const r = 5 + (c / maxC) * 22;
+    const color = c > maxC * 0.6 ? '#ef4444' : c > maxC * 0.3 ? '#f59e0b' : '#22c55e';
+    L.circleMarker([ap.lat, ap.lon], {
+      radius: r, fillColor: color, color: 'rgba(255,255,255,0.15)', weight: 1, fillOpacity: 0.78
+    })
+    .bindPopup(`<div class="mpop">
+      <div class="mpop-code">${ap.code}</div>
+      <div class="mpop-row"><span class="mpop-k">${popupLabel}</span><span class="mpop-v">${c.toLocaleString()}</span></div>
+      <div class="mpop-row"><span class="mpop-k">Period</span><span class="mpop-v">${year === 'all' ? DATA.kpis.dateMin + ' – ' + DATA.kpis.dateMax : year}</span></div>
+    </div>`)
+    .bindTooltip(`${ap.code} — ${c.toLocaleString()} diversions`, { direction: 'top', offset: [0, -r] })
+    .addTo(mapMarkers);
+  });
+}
+
+// ── HEATMAP ──────────────────────────────────────────────────────────────────
+function buildHeatmap(year) {
+  const years = year === 'all' ? Object.keys(DATA.heatmap).sort() : [String(year)];
+  const cols = years.length;
+  const grid = document.getElementById('hm-grid');
+  grid.style.gridTemplateColumns = `28px repeat(${cols}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(12, 1fr) 18px`;
+  grid.innerHTML = '';
+
+  const allVals = years.flatMap(y => DATA.heatmap[y] || []);
+  const maxVal = Math.max(...allVals, 1);
+
+  document.getElementById('hm-range').textContent = years.join(' · ');
+
+  for (let m = 0; m < 12; m++) {
+    const lbl = document.createElement('div');
+    lbl.className = 'hm-lbl'; lbl.textContent = MONTHS[m];
+    grid.appendChild(lbl);
+
+    for (const y of years) {
+      const val = (DATA.heatmap[y] || [])[m] || 0;
+      const cell = document.createElement('div');
+      cell.className = 'hm-cell';
+      if (val === 0) { cell.style.background = 'var(--surface2)'; grid.appendChild(cell); continue; }
+      const alpha = 0.08 + (val / maxVal) * 0.92;
+      cell.style.background = `rgba(59,130,246,${alpha})`;
+      cell.textContent = val >= 1000 ? Math.round(val/100)/10+'k' : val;
+      const tip = document.getElementById('hm-tip');
+      cell.addEventListener('mouseenter', e => {
+        tip.style.display = 'block';
+        tip.innerHTML = `${MONTHS[m]} ${y} — <strong>${val.toLocaleString()}</strong> diversions`;
+        tip.style.left = (e.clientX + 10) + 'px'; tip.style.top = (e.clientY - 30) + 'px';
+      });
+      cell.addEventListener('mousemove', e => {
+        tip.style.left = (e.clientX + 10) + 'px'; tip.style.top = (e.clientY - 30) + 'px';
+      });
+      cell.addEventListener('mouseleave', () => tip.style.display = 'none');
+      grid.appendChild(cell);
+    }
+  }
+
+  // year labels at bottom
+  const spacer = document.createElement('div'); spacer.className = 'hm-lbl'; grid.appendChild(spacer);
+  for (const y of years) {
+    const lbl = document.createElement('div'); lbl.className = 'hm-lbl-b'; lbl.textContent = y; grid.appendChild(lbl);
+  }
+}
+
+// ── AIRLINES ─────────────────────────────────────────────────────────────────
+function buildAirlines(year) {
+  const yrTotal = year === 'all'
+    ? Object.values(DATA.heatmap).flat().reduce((a,b) => a+b, 0)
+    : (DATA.heatmap[String(year)] || []).reduce((a,b) => a+b, 0);
+  const allTotal = Object.values(DATA.heatmap).flat().reduce((a,b) => a+b, 0);
+  const factor = allTotal > 0 ? yrTotal / allTotal : 1;
+
+  const airlines = DATA.airlines.map(al => ({ ...al, scaledCount: Math.round(al.count * factor) }))
+    .sort((a,b) => b.scaledCount - a.scaledCount);
+  const maxC = airlines[0]?.scaledCount || 1;
+
+  const wrap = document.getElementById('airline-scroll');
+  wrap.innerHTML = airlines.map(al => `
+    <div class="al-item">
+      <span class="al-code" style="color:${al.color}">${al.code}</span>
+      <span class="al-name">${al.name || al.code}</span>
+      <div class="al-bar-wrap"><div class="al-bar" style="width:${(al.scaledCount/maxC)*100}%;background:${al.color}"></div></div>
+      <span class="al-count">${al.scaledCount.toLocaleString()}</span>
+      <span class="al-hub">${al.hubDivPct}% hub</span>
+    </div>
+    ${al.topDivAirports && al.topDivAirports.length ? `
+    <div class="hub-detail" style="margin-bottom:6px">
+      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:0.08em">TOP DIV AIRPORTS</div>
+      ${al.topDivAirports.map(d => `
+        <div class="hub-row">
+          <span class="hub-k">
+            ${d.code}
+            ${d.isHub ? '<span style="color:#f59e0b;font-size:10px;margin-left:3px" title="Carrier hub">★</span>' : ''}
+          </span>
+          <span class="hub-v">${d.count.toLocaleString()}</span>
+        </div>
+      `).join('')}
+    </div>` : ''}
+  `).join('');
+}
+
+// ── KPIs ──────────────────────────────────────────────────────────────────────
+function updateKPIs(year) {
+  if (year === 'all') {
+    document.getElementById('kpi-total').textContent   = DATA.kpis.total.toLocaleString();
+    document.getElementById('kpi-daily').textContent   = DATA.kpis.daily;
+    document.getElementById('kpi-airports').textContent = DATA.kpis.divAirports;
+    document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
+    document.getElementById('kpi-delay').textContent   = DATA.kpis.avgDepDelay;
+  } else {
+    const yrVals = DATA.heatmap[String(year)] || [];
+    const yrTotal = yrVals.reduce((a,b) => a+b, 0);
+    const yrDays  = year === 2021 ? 184 : 365;
+    document.getElementById('kpi-total').textContent   = yrTotal.toLocaleString();
+    document.getElementById('kpi-daily').textContent   = (yrTotal / yrDays).toFixed(1);
+    document.getElementById('kpi-airports').textContent = DATA.kpis.divAirports;
+    document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
+    document.getElementById('kpi-delay').textContent   = DATA.kpis.avgDepDelay;
+  }
+}
+
+// ── YEAR FILTER ───────────────────────────────────────────────────────────────
+function setYear(yr) {
+  activeYear = yr;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.toggle('active', b.dataset.yr === String(yr)));
+  updateAll(yr);
+}
+
+function updateAll(year) {
+  updateKPIs(year);
+  buildMap(year);
+  buildHeatmap(year);
+  buildAirlines(year);
+}
+
+function buildYearButtons() {
+  const years = ['all', ...Object.keys(DATA.heatmap).sort()];
+  const wrap = document.getElementById('yr-btns');
+  wrap.innerHTML = years.map(y => `
+    <button class="fbtn ${y === 'all' ? 'active' : ''}" data-yr="${y}" onclick="setYear(${y === 'all' ? "'all'" : y})">${y === 'all' ? 'All' : y}</button>
+  `).join('');
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    DATA = await fetch('dashboard_data.json').then(r => r.json());
+    buildYearButtons();
+    updateAll('all');
+    setTimeout(() => document.getElementById('loading').classList.add('done'), 400);
+  } catch(e) {
+    document.querySelector('#loading p').textContent = 'Could not load dashboard_data.json — run the export cell first, then serve via python -m http.server 8000';
+    console.error(e);
+  }
+}
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
