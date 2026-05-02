@@ -93,11 +93,13 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 /* ── HEATMAP ── */
-#hm-wrap { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+#hm-wrap { flex: 1; min-height: 0; display: flex; flex-direction: column; 
+           overflow-y: auto;  overflow-x: hidden;  padding-right: 6px;}
 #hm-grid {
   flex: 1; min-height: 0;
   display: grid;
-  gap: 6px;
+  gap: 5px;
+  align-content: start;
 }
 .hm-cell {
   border: 1px solid rgba(15,23,42,0.08);
@@ -190,7 +192,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 
     <!-- HEATMAP -->
     <div class="panel">
-      <div class="ph"><span class="ph-title">Monthly Diverted Flights</span><span class="ph-sub" id="hm-range"></span></div>
+      <div class="ph"><span class="ph-title">Monthly Diverted Flights</span></div> <!-- <span class="ph-sub" id="hm-range"></span> -->>
       <div class="pb">
         <div id="hm-wrap"><div id="hm-grid"></div></div>
       </div>
@@ -273,8 +275,8 @@ function buildHeatmap(year) {
   const years = year === 'all' ? Object.keys(DATA.heatmap).sort() : [String(year)];
   const cols = years.length;
   const grid = document.getElementById('hm-grid');
-  grid.style.gridTemplateColumns = `28px repeat(${cols}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(12, 1fr) 18px`;
+  grid.style.gridTemplateColumns = `56px repeat(${cols}, minmax(90px, 1fr))`;
+  grid.style.gridTemplateRows = `repeat(12, 32px) 24px`;
   grid.innerHTML = '';
 
   const allVals = years.flatMap(y => DATA.heatmap[y] || []);
