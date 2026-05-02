@@ -36,7 +36,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
   border-radius: 4px; display: flex; align-items: baseline; gap: 6px;
 }
 .kpill-v { font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; }
-.kpill-l { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.kpill-l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
 
 .filters { display: flex; gap: 6px; margin-left: auto; align-items: center; }
 .filter-lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
@@ -159,7 +159,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
       <div class="kpill"><span class="kpill-v" id="kpi-total">—</span><span class="kpill-l">Diversions</span></div>
       <div class="kpill"><span class="kpill-v" id="kpi-daily">—</span><span class="kpill-l">Avg/Day</span></div>
       <div class="kpill"><span class="kpill-v" id="kpi-airports">—</span><span class="kpill-l">Div Airports</span></div>
-      <div class="kpill"><span class="kpill-v" id="kpi-airlines">—</span><span class="kpill-l">Carriers</span></div>
+      <!-- <div class="kpill"><span class="kpill-v" id="kpi-airlines">—</span><span class="kpill-l">Carriers</span></div> -->
       <div class="kpill"><span class="kpill-v" id="kpi-delay">—</span><span class="kpill-l">Avg Dep Delay (min)</span></div>
     </div>
     <div class="filters">
@@ -172,11 +172,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
     <!-- MAP (spans 2 rows) -->
     <div class="panel" id="panel-map">
       <div class="ph">
-        <span class="ph-title" id="map-panel-title">Top Diversion Airports</span>
+        <span class="ph-title" id="map-panel-title">Top Diverted-To Airports</span>
         <span class="ph-sub">Bubble = diversion count</span>
         <div class="map-view-toggle" style="margin-left:auto;display:flex;gap:2px">
-          <button class="fbtn active" id="mvt-div" onclick="setMapView('div')" style="padding:3px 8px;font-size:9px">Diversion Airports</button>
-          <button class="fbtn" id="mvt-dest" onclick="setMapView('dest')" style="padding:3px 8px;font-size:9px">Destination Airports</button>
+          <button class="fbtn active" id="mvt-div" onclick="setMapView('div')" style="padding:3px 8px;font-size:9px">Diverted-To Airports</button>
+          <button class="fbtn" id="mvt-dest" onclick="setMapView('dest')" style="padding:3px 8px;font-size:9px">Planned Destination Airports</button>
         </div>
       </div>
       <div class="pb" style="padding:6px 0 0 0"><div id="map"></div></div>
@@ -189,7 +189,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 
     <!-- HEATMAP -->
     <div class="panel">
-      <div class="ph"><span class="ph-title">Monthly Diversions</span><span class="ph-sub" id="hm-range"></span></div>
+      <div class="ph"><span class="ph-title">Monthly Diverted Flights</span><span class="ph-sub" id="hm-range"></span></div>
       <div class="pb">
         <div id="hm-wrap"><div id="hm-grid"></div></div>
       </div>
@@ -197,7 +197,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 
     <!-- AIRLINES -->
     <div class="panel">
-      <div class="ph"><span class="ph-title">Diversions by Carrier</span><span class="ph-sub">Hub div % · top div airports</span></div>
+      <div class="ph"><span class="ph-title">Diverted Flights by Operating Airline</span></div> 
       <div class="pb" style="padding-bottom:0">
         <div id="airline-scroll"></div>
       </div>
@@ -208,12 +208,12 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 <script>
 let DATA = {};
 let activeYear = 'all';
-let mapView = 'div'; // 'div' = diversion airports, 'dest' = destination airports
+let mapView = 'div'; // 'div' = diverted-to airports, 'dest' = planned destination airports
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 // ── MAP ──────────────────────────────────────────────────────────────────────
 // Renders proportionally sized, color-coded bubbles for the top 15 airports.
-// mapView controls whether diversion airports or destination airports are shown.
+// mapView controls whether diverted-to airports or planned destination airports are shown.
 // Bubble size and color reflect actual per-year counts from the JSON.
 const map = L.map('map', { center: [38.5, -96], zoom: 4, zoomControl: true });
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -226,7 +226,7 @@ function setMapView(view) {
   document.getElementById('mvt-div').classList.toggle('active', view === 'div');
   document.getElementById('mvt-dest').classList.toggle('active', view === 'dest');
   document.getElementById('map-panel-title').textContent =
-    view === 'div' ? 'Top Diversion Airports' : 'Top Destination Airports';
+    view === 'div' ? 'Top Diverted-To Airports' : 'Top Planned Destination Airports';
   map.setView([38.5, -96], 4);
   buildMap(activeYear);
 }
@@ -247,7 +247,7 @@ function buildMap(year) {
   if (nonZero.length === 0) return;
   const maxC = Math.max(...nonZero);
 
-  const popupLabel = mapView === 'div' ? 'Diversions accepted' : 'Diversions intended here';
+  const popupLabel = mapView === 'div' ? 'Diverted flights received' : 'Diverted flights originally planned here';
 
   airports.forEach((ap, i) => {
     const c = counts[i];
@@ -262,7 +262,7 @@ function buildMap(year) {
       <div class="mpop-row"><span class="mpop-k">${popupLabel}</span><span class="mpop-v">${c.toLocaleString()}</span></div>
       <div class="mpop-row"><span class="mpop-k">Period</span><span class="mpop-v">${year === 'all' ? DATA.kpis.dateMin + ' – ' + DATA.kpis.dateMax : year}</span></div>
     </div>`)
-    .bindTooltip(`${ap.code} — ${c.toLocaleString()} diversions`, { direction: 'top', offset: [0, -r] })
+    .bindTooltip(`${ap.code} — ${c.toLocaleString()} diverted flights`, { direction: 'top', offset: [0, -r] })
     .addTo(mapMarkers);
   });
 }
@@ -333,19 +333,19 @@ function buildAirlines(year) {
       <span class="al-code" style="color:${al.color}">${al.code}</span>
       <span class="al-name">${al.name || al.code}</span>
       <div class="al-bar-wrap"><div class="al-bar" style="width:${(al.scaledCount/maxC)*100}%;background:${al.color}"></div></div>
-      <span class="al-count">${al.scaledCount.toLocaleString()}</span>
-      <span class="al-hub">${al.hubDivPct}% hub</span>
+      <span class="al-count">${al.scaledCount.toLocaleString()} flights</span></div></div>
+      <span class="al-hub">${al.hubDivPct}% diverted to hubs</span>
     </div>
     ${al.topDivAirports && al.topDivAirports.length ? `
     <div class="hub-detail" style="margin-bottom:6px">
-      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:0.08em">TOP DIV AIRPORTS</div>
+      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:0.08em">Top diverted-to airports (by flight count)</div>
       ${al.topDivAirports.map(d => `
         <div class="hub-row">
           <span class="hub-k">
             ${d.code}
             ${d.isHub ? '<span style="color:#f59e0b;font-size:10px;margin-left:3px" title="Carrier hub">★</span>' : ''}
           </span>
-          <span class="hub-v">${d.count.toLocaleString()}</span>
+          <span class="hub-v">${d.count.toLocaleString()} flights</span>
         </div>
       `).join('')}
     </div>` : ''}
@@ -358,7 +358,7 @@ function updateKPIs(year) {
     document.getElementById('kpi-total').textContent   = DATA.kpis.total.toLocaleString();
     document.getElementById('kpi-daily').textContent   = DATA.kpis.daily;
     document.getElementById('kpi-airports').textContent = DATA.kpis.divAirports;
-    document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
+    //document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
     document.getElementById('kpi-delay').textContent   = DATA.kpis.avgDepDelay;
   } else {
     const yrVals = DATA.heatmap[String(year)] || [];
@@ -367,7 +367,7 @@ function updateKPIs(year) {
     document.getElementById('kpi-total').textContent   = yrTotal.toLocaleString();
     document.getElementById('kpi-daily').textContent   = (yrTotal / yrDays).toFixed(1);
     document.getElementById('kpi-airports').textContent = DATA.kpis.divAirports;
-    document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
+    //document.getElementById('kpi-airlines').textContent = DATA.kpis.airlines;
     document.getElementById('kpi-delay').textContent   = DATA.kpis.avgDepDelay;
   }
 }
