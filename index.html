@@ -393,7 +393,7 @@ function buildYearButtons() {
 // ── INIT ──────────────────────────────────────────────────────────────────────
 async function init() {
   try {
-    DATA = await fetch('dashboard_data.json').then(r => r.json());
+    DATA = await fetch('./data/dashboard_data.json').then(r => r.json());
     buildYearButtons();
     updateAll('all');
     setTimeout(() => document.getElementById('loading').classList.add('done'), 400);
