@@ -105,12 +105,12 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .hm-cell {
   border: 1px solid rgba(15,23,42,0.08); min-width: 0;  padding: 0 4px;
   border-radius: 4px; display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Mono', monospace; font-size: 12px; color: #0f172a;
+  font-family: 'Space Mono', monospace; font-size: 11px; color: #0f172a;
   cursor: default; transition: outline 0.1s;
 }
 .hm-cell:hover { outline: 1px solid rgba(255,255,255,0.5); z-index: 2; }
-.hm-lbl { font-size: 12px; color: var(--muted);  font-weight: 600; color: #334155; display: flex; align-items: center; justify-content: center; }
-.hm-lbl-b { font-size: 12px; color: var(--muted); font-weight: 600; display: flex; color: #334155; align-items: flex-end; justify-content: center; padding-bottom: 1px; }
+.hm-lbl { font-size: 11px; color: var(--muted);  font-weight: 600; color: #334155; display: flex; align-items: center; justify-content: center; }
+.hm-lbl-b { font-size: 11px; color: var(--muted); font-weight: 600; display: flex; color: #334155; align-items: flex-end; justify-content: center; padding-bottom: 1px; }
 
 /* tooltip */
 #hm-tip {
@@ -277,8 +277,8 @@ function buildHeatmap(year) {
   const years = year === 'all' ? Object.keys(DATA.heatmap).sort() : [String(year)];
   const cols = years.length;
   const grid = document.getElementById('hm-grid');
-  grid.style.gridTemplateColumns = `48px repeat(${cols}, 76px)`;
-  grid.style.gridTemplateRows = `repeat(12, 28px) 24px`;
+  grid.style.gridTemplateColumns = `28px repeat(${cols}, 48px)`;
+  grid.style.gridTemplateRows = `repeat(10, 24px) 24px`;
   grid.innerHTML = '';
 
   const allVals = years.flatMap(y => DATA.heatmap[y] || []);
