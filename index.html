@@ -110,7 +110,8 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 }
 .hm-cell:hover { outline: 1px solid rgba(255,255,255,0.5); z-index: 2; }
 .hm-lbl { font-size: 11px; color: var(--muted);  font-weight: 600; color: #334155; display: flex; align-items: center; justify-content: center; }
-.hm-lbl-b { font-size: 11px; color: var(--muted); font-weight: 600; display: flex; color: #334155; align-items: flex-end; justify-content: center; padding-bottom: 1px; }
+.hm-lbl-b { font-size: 11px; color: var(--muted); font-weight: 600; display: flex; color: #334155; align-items: flex-end; justify-content: center; padding-bottom: 4px;
+            border-bottom: 2px solid rgba(15,23,42,0.1);}
 
 /* tooltip */
 #hm-tip {
@@ -316,10 +317,23 @@ function buildHeatmap(year) {
   }
 
   // year labels at bottom
-  const spacer = document.createElement('div'); spacer.className = 'hm-lbl'; grid.appendChild(spacer);
+  // const spacer = document.createElement('div'); spacer.className = 'hm-lbl'; grid.appendChild(spacer);
+  // for (const y of years) {
+  //   const lbl = document.createElement('div'); lbl.className = 'hm-lbl-b'; lbl.textContent = y; grid.appendChild(lbl);
+  // }
+  // year labels at top
+  const spacer = document.createElement('div');
+  spacer.className = 'hm-lbl';
+  spacer.textContent = ''; // empty top-left corner
+  grid.appendChild(spacer);
+
   for (const y of years) {
-    const lbl = document.createElement('div'); lbl.className = 'hm-lbl-b'; lbl.textContent = y; grid.appendChild(lbl);
+    const lbl = document.createElement('div');
+    lbl.className = 'hm-lbl-b';
+    lbl.textContent = y;
+    grid.appendChild(lbl);
   }
+
 }
 
 // ── AIRLINES ─────────────────────────────────────────────────────────────────
