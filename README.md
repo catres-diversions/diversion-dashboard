@@ -13,18 +13,11 @@ The tool is part of the **[Center for Air Transportation Resilience (CATRes)](ht
 
 ## Purpose
 
-Flight diversions are a critical indicator of system stress in the aviation network. This dashboard enables users to:
+Focusing on domestic diverted flights from July 2021 to December 2024, this dashboard enables users to:
 
-* Identify **high-volume diversion-receiving airports**
-* Examine **temporal patterns** of diverted flights
-* Compare **airline-level diversion behavior**
-* Explore the relationship between **planned destinations and actual diversion outcomes**
-
-The dashboard is intended for:
-
-* Researchers studying aviation system performance
-* Practitioners in airport and airline operations
-* Policy and planning stakeholders
+* Identify high-volume diversion-receiving airports
+* Examine monthly temporal patterns of diverted flights
+* Compare airline-level diversion behavior
 
 ---
 
@@ -32,7 +25,7 @@ The dashboard is intended for:
 
 ### 1. Year Filter (Top Right)
 
-* Toggle between **All years** or specific years (2021–2024)
+* Toggle between **All years** or specific years (2021-2024)
 * All panels update dynamically
 
 ---
@@ -51,7 +44,7 @@ The dashboard is intended for:
   * 🟠 Medium volume
   * 🟢 Lower volume
 
-Use the toggle to compare **intended vs actual system behavior**.
+Use the toggle to compare intended vs actual system behavior.
 
 ---
 
@@ -81,18 +74,17 @@ Shows how diversion activity is distributed across airlines.
 For each airline:
 
 * Total number of diverted flights
-* % of diverted flights routed to **hub airports**
+* % of diverted flights routed to airlines' **hub airports**
 * Top **diverted-to airports**
 
 **Interpretation:**
 
 * Highlights differences in:
 
-  * network structure
   * operational strategies
   * reliance on hub recovery
 
-⭐ indicates an airline hub airport.
+⭐ indicates an airline's hub airport.
 
 ---
 
