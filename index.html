@@ -341,40 +341,65 @@ function buildHeatmap(year) {
 
 // ── AIRLINES ─────────────────────────────────────────────────────────────────
 function buildAirlines(year) {
-  const yrTotal = year === 'all'
-    ? Object.values(DATA.heatmap).flat().reduce((a,b) => a+b, 0)
-    : (DATA.heatmap[String(year)] || []).reduce((a,b) => a+b, 0);
-  const allTotal = Object.values(DATA.heatmap).flat().reduce((a,b) => a+b, 0);
-  const factor = allTotal > 0 ? yrTotal / allTotal : 1;
+  const airlines = DATA.airlines.map(al => {
+    if (year === 'all') {
+      return {
+        ...al,
+        displayCount: al.count,
+        displayHubPct: al.hubDivPct,
+        displayTopDivAirports: al.topDivAirports || []
+      };
+    }
 
-  const airlines = DATA.airlines.map(al => ({ ...al, scaledCount: Math.round(al.count * factor) }))
-    .sort((a,b) => b.scaledCount - a.scaledCount);
-  const maxC = airlines[0]?.scaledCount || 1;
+    const yr = al.yearly?.[String(year)] || {};
+
+    return {
+      ...al,
+      displayCount: yr.count || 0,
+      displayHubPct: yr.hubDivPct || 0,
+      displayTopDivAirports: yr.topDivAirports || []
+    };
+  })
+  .filter(al => al.displayCount > 0)
+  .sort((a, b) => b.displayCount - a.displayCount);
+
+  const maxC = airlines[0]?.displayCount || 1;
 
   const wrap = document.getElementById('airline-scroll');
+
   wrap.innerHTML = airlines.map(al => `
     <div class="al-item">
       <span class="al-code" style="color:${al.color}">${al.code}</span>
       <span class="al-name">${al.name || al.code}</span>
-      <div class="al-bar-wrap"><div class="al-bar" style="width:${(al.scaledCount/maxC)*100}%;background:${al.color}"></div></div>
-      <span class="al-count">${al.scaledCount.toLocaleString()} flights</span></div></div>
-      <span class="al-hub">${al.hubDivPct}% diverted to hubs</span>
+
+      <div class="al-bar-wrap">
+        <div class="al-bar" style="width:${(al.displayCount / maxC) * 100}%; background:${al.color}"></div>
+      </div>
+
+      <span class="al-count">${al.displayCount.toLocaleString()} flights</span>
+      <span class="al-hub">${al.displayHubPct}% to hubs</span>
     </div>
-    ${al.topDivAirports && al.topDivAirports.length ? `
-    <div class="hub-detail" style="margin-bottom:6px">
-      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:0.08em">Top diverted-to airports (by flight count)</div>
-      ${al.topDivAirports.map(d => `
-        <div class="hub-row">
-          <span class="hub-k">
-            ${d.code}
-            ${d.isHub ? '<span style="color:#f59e0b;font-size:10px;margin-left:3px" title="Carrier hub">★</span>' : ''}
-          </span>
-          <span class="hub-v">${d.count.toLocaleString()} flights</span>
+
+    ${al.displayTopDivAirports.length ? `
+      <div class="hub-detail" style="margin-bottom:6px">
+        <div style="font-size:9px;color:var(--muted);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:0.08em">
+          Top diverted-to airports (by flight count)
         </div>
-      `).join('')}
-    </div>` : ''}
+
+        ${al.displayTopDivAirports.map(d => `
+          <div class="hub-row">
+            <span class="hub-k">
+              ${d.code}
+              ${d.isHub ? '<span style="color:#f59e0b;font-size:10px;margin-left:3px" title="Airline hub airport">★</span>' : ''}
+            </span>
+            <span class="hub-v">${d.count.toLocaleString()} flights</span>
+          </div>
+        `).join('')}
+      </div>
+    ` : ''}
   `).join('');
 }
+
 
 // ── KPIs ──────────────────────────────────────────────────────────────────────
 function updateKPIs(year) {

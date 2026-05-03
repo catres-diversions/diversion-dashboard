@@ -1,1 +1,2035 @@
-{"kpis": {"total": 64816, "daily": 50.6, "divAirports": 377, "airlines": 10, "avgDepDelay": 32.2, "dateMin": "2021-07-01 00:00:00", "dateMax": "2024-12-31 00:00:00"}, "heatmap": {"2021": [0, 0, 0, 0, 0, 1, 2411, 2249, 1010, 1155, 818, 1606], "2022": [1308, 978, 1549, 1464, 1627, 1813, 2000, 1933, 1143, 1041, 1126, 1494], "2023": [1604, 1153, 1568, 1798, 1370, 2454, 2388, 1845, 1523, 908, 630, 1339], "2024": [1801, 1065, 1372, 1394, 2468, 2138, 2481, 2225, 964, 773, 947, 1882]}, "divAirports": [{"code": "DEN", "lat": 39.77444444, "lon": -104.87972222, "count": 1935, "yearly": {"2021": 309, "2022": 509, "2023": 559, "2024": 558}}, {"code": "IAD", "lat": 38.94166667, "lon": -77.4575, "count": 1680, "yearly": {"2021": 209, "2022": 481, "2023": 458, "2024": 532}}, {"code": "LAX", "lat": 33.9425, "lon": -118.40805556, "count": 1608, "yearly": {"2021": 220, "2022": 361, "2023": 415, "2024": 612}}, {"code": "DFW", "lat": 32.89444444, "lon": -97.02972222, "count": 1366, "yearly": {"2021": 185, "2022": 375, "2023": 378, "2024": 428}}, {"code": "AUS", "lat": 30.19444444, "lon": -97.67, "count": 1309, "yearly": {"2021": 197, "2022": 307, "2023": 361, "2024": 444}}, {"code": "TPA", "lat": 27.97305556, "lon": -82.53527778, "count": 1301, "yearly": {"2021": 138, "2022": 355, "2023": 516, "2024": 292}}, {"code": "PHL", "lat": 39.86805556, "lon": -75.24861111, "count": 1295, "yearly": {"2021": 166, "2022": 383, "2023": 357, "2024": 389}}, {"code": "ORD", "lat": 41.97805556, "lon": -87.90611111, "count": 1176, "yearly": {"2021": 161, "2022": 327, "2023": 297, "2024": 391}}, {"code": "COS", "lat": 38.80888889, "lon": -104.70916667, "count": 1172, "yearly": {"2021": 153, "2022": 317, "2023": 429, "2024": 273}}, {"code": "PHX", "lat": 33.43611111, "lon": -112.00944444, "count": 1153, "yearly": {"2021": 198, "2022": 271, "2023": 382, "2024": 302}}, {"code": "CLT", "lat": 35.21916667, "lon": -80.93583333, "count": 1149, "yearly": {"2021": 155, "2022": 264, "2023": 364, "2024": 366}}, {"code": "MCO", "lat": 28.43166667, "lon": -81.32472222, "count": 1145, "yearly": {"2021": 153, "2022": 298, "2023": 376, "2024": 318}}, {"code": "ATL", "lat": 33.64083333, "lon": -84.42722222, "count": 1140, "yearly": {"2021": 149, "2022": 308, "2023": 332, "2024": 351}}, {"code": "IAH", "lat": 29.98333333, "lon": -95.34, "count": 1118, "yearly": {"2021": 177, "2022": 265, "2023": 312, "2024": 364}}, {"code": "SLC", "lat": 40.78416667, "lon": -111.96694444, "count": 1027, "yearly": {"2021": 165, "2022": 287, "2023": 308, "2024": 267}}], "destAirports": [{"code": "DFW", "lat": 32.89444444, "lon": -97.02972222, "count": 3905, "yearly": {"2021": 581, "2022": 1038, "2023": 967, "2024": 1319}}, {"code": "DEN", "lat": 39.77444444, "lon": -104.87972222, "count": 3255, "yearly": {"2021": 462, "2022": 849, "2023": 1185, "2024": 759}}, {"code": "ORD", "lat": 41.97805556, "lon": -87.90611111, "count": 2848, "yearly": {"2021": 474, "2022": 745, "2023": 706, "2024": 923}}, {"code": "LGA", "lat": 40.77944444, "lon": -73.87583333, "count": 2643, "yearly": {"2021": 287, "2022": 920, "2023": 718, "2024": 718}}, {"code": "EWR", "lat": 40.69583333, "lon": -74.17166667, "count": 2027, "yearly": {"2021": 338, "2022": 571, "2023": 486, "2024": 632}}, {"code": "ATL", "lat": 33.64083333, "lon": -84.42722222, "count": 1956, "yearly": {"2021": 270, "2022": 506, "2023": 612, "2024": 568}}, {"code": "IAH", "lat": 29.98333333, "lon": -95.34, "count": 1915, "yearly": {"2021": 240, "2022": 432, "2023": 516, "2024": 727}}, {"code": "MCO", "lat": 28.43166667, "lon": -81.32472222, "count": 1825, "yearly": {"2021": 194, "2022": 494, "2023": 663, "2024": 474}}, {"code": "CLT", "lat": 35.21916667, "lon": -80.93583333, "count": 1784, "yearly": {"2021": 251, "2022": 508, "2023": 466, "2024": 559}}, {"code": "DCA", "lat": 38.85166667, "lon": -77.03694444, "count": 1781, "yearly": {"2021": 193, "2022": 531, "2023": 508, "2024": 549}}, {"code": "MIA", "lat": 25.7925, "lon": -80.28611111, "count": 1370, "yearly": {"2021": 132, "2022": 391, "2023": 507, "2024": 340}}, {"code": "JFK", "lat": 40.63861111, "lon": -73.77694444, "count": 1356, "yearly": {"2021": 245, "2022": 359, "2023": 358, "2024": 394}}, {"code": "FLL", "lat": 26.07416667, "lon": -80.15166667, "count": 1202, "yearly": {"2021": 136, "2022": 291, "2023": 539, "2024": 236}}, {"code": "SEA", "lat": 47.44722222, "lon": -122.30555556, "count": 1157, "yearly": {"2021": 170, "2022": 401, "2023": 305, "2024": 281}}, {"code": "PHX", "lat": 33.43611111, "lon": -112.00944444, "count": 1049, "yearly": {"2021": 206, "2022": 361, "2023": 260, "2024": 222}}], "airlines": [{"code": "AA", "name": "American", "count": 18004, "hubDivPct": 23.3, "hubDestPct": 56.4, "hubOriginPct": 54.6, "color": "#ef4444", "topDivAirports": [{"code": "DFW", "count": 984, "isHub": true}, {"code": "CLT", "count": 892, "isHub": true}, {"code": "PHL", "count": 610, "isHub": true}, {"code": "IAD", "count": 569, "isHub": false}, {"code": "OKC", "count": 509, "isHub": false}]}, {"code": "UA", "name": "United", "count": 13921, "hubDivPct": 28.7, "hubDestPct": 51.7, "hubOriginPct": 54.3, "color": "#22c55e", "topDivAirports": [{"code": "DEN", "count": 1149, "isHub": true}, {"code": "COS", "count": 737, "isHub": false}, {"code": "IAD", "count": 719, "isHub": true}, {"code": "ORD", "count": 663, "isHub": true}, {"code": "GJT", "count": 578, "isHub": false}]}, {"code": "DL", "name": "Delta", "count": 10886, "hubDivPct": 25.4, "hubDestPct": 45.8, "hubOriginPct": 60.4, "color": "#3b82f6", "topDivAirports": [{"code": "ATL", "count": 636, "isHub": true}, {"code": "DTW", "count": 583, "isHub": true}, {"code": "MSP", "count": 434, "isHub": true}, {"code": "SLC", "count": 385, "isHub": true}, {"code": "JFK", "count": 301, "isHub": true}]}, {"code": "WN", "name": "Southwest", "count": 10285, "hubDivPct": 14.5, "hubDestPct": 35.4, "hubOriginPct": 33.3, "color": "#f59e0b", "topDivAirports": [{"code": "LAX", "count": 465, "isHub": false}, {"code": "ONT", "count": 351, "isHub": false}, {"code": "LAS", "count": 336, "isHub": true}, {"code": "STL", "count": 331, "isHub": false}, {"code": "AUS", "count": 330, "isHub": false}]}, {"code": "AS", "name": "Alaska", "count": 3922, "hubDivPct": 44.7, "hubDestPct": 38.0, "hubOriginPct": 58.8, "color": "#a855f7", "topDivAirports": [{"code": "SEA", "count": 431, "isHub": true}, {"code": "SJC", "count": 377, "isHub": true}, {"code": "ANC", "count": 356, "isHub": true}, {"code": "PDX", "count": 281, "isHub": true}, {"code": "LAX", "count": 165, "isHub": true}]}, {"code": "B6", "name": "JetBlue", "count": 3654, "hubDivPct": 30.8, "hubDestPct": 43.9, "hubOriginPct": 46.1, "color": "#06b6d4", "topDivAirports": [{"code": "JFK", "count": 509, "isHub": true}, {"code": "MCO", "count": 227, "isHub": true}, {"code": "TPA", "count": 178, "isHub": false}, {"code": "FLL", "count": 165, "isHub": true}, {"code": "BOS", "count": 156, "isHub": true}]}, {"code": "NK", "name": "Spirit", "count": 1659, "hubDivPct": 20.9, "hubDestPct": 49.0, "hubOriginPct": 35.7, "color": "#f97316", "topDivAirports": [{"code": "TPA", "count": 161, "isHub": false}, {"code": "MCO", "count": 119, "isHub": true}, {"code": "SJU", "count": 110, "isHub": false}, {"code": "RSW", "count": 107, "isHub": false}, {"code": "FLL", "count": 104, "isHub": true}]}, {"code": "G4", "name": "Allegiant", "count": 1186, "hubDivPct": 25.5, "hubDestPct": 17.5, "hubOriginPct": 23.5, "color": "#dc2626", "topDivAirports": [{"code": "SFB", "count": 121, "isHub": true}, {"code": "PIE", "count": 102, "isHub": true}, {"code": "LAS", "count": 79, "isHub": true}, {"code": "PGD", "count": 65, "isHub": false}, {"code": "FLL", "count": 46, "isHub": false}]}, {"code": "F9", "name": "Frontier", "count": 1012, "hubDivPct": 30.5, "hubDestPct": 37.5, "hubOriginPct": 43.1, "color": "#64748b", "topDivAirports": [{"code": "MCO", "count": 77, "isHub": true}, {"code": "PHL", "count": 74, "isHub": true}, {"code": "DEN", "count": 74, "isHub": true}, {"code": "TPA", "count": 71, "isHub": false}, {"code": "SJU", "count": 59, "isHub": false}]}, {"code": "HA", "name": "Hawaiian", "count": 287, "hubDivPct": 56.1, "hubDestPct": 39.0, "hubOriginPct": 58.2, "color": "#10b981", "topDivAirports": [{"code": "HNL", "count": 142, "isHub": true}, {"code": "LAX", "count": 43, "isHub": false}, {"code": "SFO", "count": 20, "isHub": false}, {"code": "OGG", "count": 19, "isHub": true}, {"code": "KOA", "count": 13, "isHub": false}]}]}
+{
+  "kpis": {
+    "total": 64816,
+    "daily": 50.6,
+    "divAirports": 377,
+    "airlines": 10,
+    "avgDepDelay": 32.2,
+    "dateMin": "2021-07-01 00:00:00",
+    "dateMax": "2024-12-31 00:00:00"
+  },
+  "heatmap": {
+    "2021": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2411,
+      2249,
+      1010,
+      1155,
+      818,
+      1606
+    ],
+    "2022": [
+      1308,
+      978,
+      1549,
+      1464,
+      1627,
+      1813,
+      2000,
+      1933,
+      1143,
+      1041,
+      1126,
+      1494
+    ],
+    "2023": [
+      1604,
+      1153,
+      1568,
+      1798,
+      1370,
+      2454,
+      2388,
+      1845,
+      1523,
+      908,
+      630,
+      1339
+    ],
+    "2024": [
+      1801,
+      1065,
+      1372,
+      1394,
+      2468,
+      2138,
+      2481,
+      2225,
+      964,
+      773,
+      947,
+      1882
+    ]
+  },
+  "divAirports": [
+    {
+      "code": "DEN",
+      "lat": 39.77444444,
+      "lon": -104.87972222,
+      "count": 1935,
+      "yearly": {
+        "2021": 309,
+        "2022": 509,
+        "2023": 559,
+        "2024": 558
+      }
+    },
+    {
+      "code": "IAD",
+      "lat": 38.94166667,
+      "lon": -77.4575,
+      "count": 1680,
+      "yearly": {
+        "2021": 209,
+        "2022": 481,
+        "2023": 458,
+        "2024": 532
+      }
+    },
+    {
+      "code": "LAX",
+      "lat": 33.9425,
+      "lon": -118.40805556,
+      "count": 1608,
+      "yearly": {
+        "2021": 220,
+        "2022": 361,
+        "2023": 415,
+        "2024": 612
+      }
+    },
+    {
+      "code": "DFW",
+      "lat": 32.89444444,
+      "lon": -97.02972222,
+      "count": 1366,
+      "yearly": {
+        "2021": 185,
+        "2022": 375,
+        "2023": 378,
+        "2024": 428
+      }
+    },
+    {
+      "code": "AUS",
+      "lat": 30.19444444,
+      "lon": -97.67,
+      "count": 1309,
+      "yearly": {
+        "2021": 197,
+        "2022": 307,
+        "2023": 361,
+        "2024": 444
+      }
+    },
+    {
+      "code": "TPA",
+      "lat": 27.97305556,
+      "lon": -82.53527778,
+      "count": 1301,
+      "yearly": {
+        "2021": 138,
+        "2022": 355,
+        "2023": 516,
+        "2024": 292
+      }
+    },
+    {
+      "code": "PHL",
+      "lat": 39.86805556,
+      "lon": -75.24861111,
+      "count": 1295,
+      "yearly": {
+        "2021": 166,
+        "2022": 383,
+        "2023": 357,
+        "2024": 389
+      }
+    },
+    {
+      "code": "ORD",
+      "lat": 41.97805556,
+      "lon": -87.90611111,
+      "count": 1176,
+      "yearly": {
+        "2021": 161,
+        "2022": 327,
+        "2023": 297,
+        "2024": 391
+      }
+    },
+    {
+      "code": "COS",
+      "lat": 38.80888889,
+      "lon": -104.70916667,
+      "count": 1172,
+      "yearly": {
+        "2021": 153,
+        "2022": 317,
+        "2023": 429,
+        "2024": 273
+      }
+    },
+    {
+      "code": "PHX",
+      "lat": 33.43611111,
+      "lon": -112.00944444,
+      "count": 1153,
+      "yearly": {
+        "2021": 198,
+        "2022": 271,
+        "2023": 382,
+        "2024": 302
+      }
+    },
+    {
+      "code": "CLT",
+      "lat": 35.21916667,
+      "lon": -80.93583333,
+      "count": 1149,
+      "yearly": {
+        "2021": 155,
+        "2022": 264,
+        "2023": 364,
+        "2024": 366
+      }
+    },
+    {
+      "code": "MCO",
+      "lat": 28.43166667,
+      "lon": -81.32472222,
+      "count": 1145,
+      "yearly": {
+        "2021": 153,
+        "2022": 298,
+        "2023": 376,
+        "2024": 318
+      }
+    },
+    {
+      "code": "ATL",
+      "lat": 33.64083333,
+      "lon": -84.42722222,
+      "count": 1140,
+      "yearly": {
+        "2021": 149,
+        "2022": 308,
+        "2023": 332,
+        "2024": 351
+      }
+    },
+    {
+      "code": "IAH",
+      "lat": 29.98333333,
+      "lon": -95.34,
+      "count": 1118,
+      "yearly": {
+        "2021": 177,
+        "2022": 265,
+        "2023": 312,
+        "2024": 364
+      }
+    },
+    {
+      "code": "SLC",
+      "lat": 40.78416667,
+      "lon": -111.96694444,
+      "count": 1027,
+      "yearly": {
+        "2021": 165,
+        "2022": 287,
+        "2023": 308,
+        "2024": 267
+      }
+    }
+  ],
+  "destAirports": [
+    {
+      "code": "DFW",
+      "lat": 32.89444444,
+      "lon": -97.02972222,
+      "count": 3905,
+      "yearly": {
+        "2021": 581,
+        "2022": 1038,
+        "2023": 967,
+        "2024": 1319
+      }
+    },
+    {
+      "code": "DEN",
+      "lat": 39.77444444,
+      "lon": -104.87972222,
+      "count": 3255,
+      "yearly": {
+        "2021": 462,
+        "2022": 849,
+        "2023": 1185,
+        "2024": 759
+      }
+    },
+    {
+      "code": "ORD",
+      "lat": 41.97805556,
+      "lon": -87.90611111,
+      "count": 2848,
+      "yearly": {
+        "2021": 474,
+        "2022": 745,
+        "2023": 706,
+        "2024": 923
+      }
+    },
+    {
+      "code": "LGA",
+      "lat": 40.77944444,
+      "lon": -73.87583333,
+      "count": 2643,
+      "yearly": {
+        "2021": 287,
+        "2022": 920,
+        "2023": 718,
+        "2024": 718
+      }
+    },
+    {
+      "code": "EWR",
+      "lat": 40.69583333,
+      "lon": -74.17166667,
+      "count": 2027,
+      "yearly": {
+        "2021": 338,
+        "2022": 571,
+        "2023": 486,
+        "2024": 632
+      }
+    },
+    {
+      "code": "ATL",
+      "lat": 33.64083333,
+      "lon": -84.42722222,
+      "count": 1956,
+      "yearly": {
+        "2021": 270,
+        "2022": 506,
+        "2023": 612,
+        "2024": 568
+      }
+    },
+    {
+      "code": "IAH",
+      "lat": 29.98333333,
+      "lon": -95.34,
+      "count": 1915,
+      "yearly": {
+        "2021": 240,
+        "2022": 432,
+        "2023": 516,
+        "2024": 727
+      }
+    },
+    {
+      "code": "MCO",
+      "lat": 28.43166667,
+      "lon": -81.32472222,
+      "count": 1825,
+      "yearly": {
+        "2021": 194,
+        "2022": 494,
+        "2023": 663,
+        "2024": 474
+      }
+    },
+    {
+      "code": "CLT",
+      "lat": 35.21916667,
+      "lon": -80.93583333,
+      "count": 1784,
+      "yearly": {
+        "2021": 251,
+        "2022": 508,
+        "2023": 466,
+        "2024": 559
+      }
+    },
+    {
+      "code": "DCA",
+      "lat": 38.85166667,
+      "lon": -77.03694444,
+      "count": 1781,
+      "yearly": {
+        "2021": 193,
+        "2022": 531,
+        "2023": 508,
+        "2024": 549
+      }
+    },
+    {
+      "code": "MIA",
+      "lat": 25.7925,
+      "lon": -80.28611111,
+      "count": 1370,
+      "yearly": {
+        "2021": 132,
+        "2022": 391,
+        "2023": 507,
+        "2024": 340
+      }
+    },
+    {
+      "code": "JFK",
+      "lat": 40.63861111,
+      "lon": -73.77694444,
+      "count": 1356,
+      "yearly": {
+        "2021": 245,
+        "2022": 359,
+        "2023": 358,
+        "2024": 394
+      }
+    },
+    {
+      "code": "FLL",
+      "lat": 26.07416667,
+      "lon": -80.15166667,
+      "count": 1202,
+      "yearly": {
+        "2021": 136,
+        "2022": 291,
+        "2023": 539,
+        "2024": 236
+      }
+    },
+    {
+      "code": "SEA",
+      "lat": 47.44722222,
+      "lon": -122.30555556,
+      "count": 1157,
+      "yearly": {
+        "2021": 170,
+        "2022": 401,
+        "2023": 305,
+        "2024": 281
+      }
+    },
+    {
+      "code": "PHX",
+      "lat": 33.43611111,
+      "lon": -112.00944444,
+      "count": 1049,
+      "yearly": {
+        "2021": 206,
+        "2022": 361,
+        "2023": 260,
+        "2024": 222
+      }
+    }
+  ],
+  "airlines": [
+    {
+      "code": "AA",
+      "name": "American",
+      "color": "#2563eb",
+      "count": 18004,
+      "hubDivPct": 23.3,
+      "topDivAirports": [
+        {
+          "code": "DFW",
+          "count": 984,
+          "isHub": true
+        },
+        {
+          "code": "CLT",
+          "count": 892,
+          "isHub": true
+        },
+        {
+          "code": "PHL",
+          "count": 610,
+          "isHub": true
+        },
+        {
+          "code": "IAD",
+          "count": 569,
+          "isHub": false
+        },
+        {
+          "code": "OKC",
+          "count": 509,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 2640,
+          "hubDivPct": 22.2,
+          "topDivAirports": [
+            {
+              "code": "DFW",
+              "count": 129,
+              "isHub": true
+            },
+            {
+              "code": "CLT",
+              "count": 113,
+              "isHub": true
+            },
+            {
+              "code": "PHX",
+              "count": 103,
+              "isHub": true
+            },
+            {
+              "code": "PHL",
+              "count": 90,
+              "isHub": true
+            },
+            {
+              "code": "OKC",
+              "count": 77,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 4958,
+          "hubDivPct": 22.8,
+          "topDivAirports": [
+            {
+              "code": "DFW",
+              "count": 288,
+              "isHub": true
+            },
+            {
+              "code": "CLT",
+              "count": 206,
+              "isHub": true
+            },
+            {
+              "code": "PHL",
+              "count": 185,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 171,
+              "isHub": false
+            },
+            {
+              "code": "OKC",
+              "count": 123,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 4890,
+          "hubDivPct": 23.9,
+          "topDivAirports": [
+            {
+              "code": "CLT",
+              "count": 285,
+              "isHub": true
+            },
+            {
+              "code": "DFW",
+              "count": 260,
+              "isHub": true
+            },
+            {
+              "code": "PHL",
+              "count": 170,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 162,
+              "isHub": false
+            },
+            {
+              "code": "AUS",
+              "count": 147,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 5516,
+          "hubDivPct": 23.7,
+          "topDivAirports": [
+            {
+              "code": "DFW",
+              "count": 307,
+              "isHub": true
+            },
+            {
+              "code": "CLT",
+              "count": 288,
+              "isHub": true
+            },
+            {
+              "code": "OKC",
+              "count": 177,
+              "isHub": false
+            },
+            {
+              "code": "IAD",
+              "count": 170,
+              "isHub": false
+            },
+            {
+              "code": "PHL",
+              "count": 165,
+              "isHub": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "UA",
+      "name": "United",
+      "color": "#0f766e",
+      "count": 13921,
+      "hubDivPct": 28.7,
+      "topDivAirports": [
+        {
+          "code": "DEN",
+          "count": 1149,
+          "isHub": true
+        },
+        {
+          "code": "COS",
+          "count": 737,
+          "isHub": false
+        },
+        {
+          "code": "IAD",
+          "count": 719,
+          "isHub": true
+        },
+        {
+          "code": "ORD",
+          "count": 663,
+          "isHub": true
+        },
+        {
+          "code": "GJT",
+          "count": 578,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 2109,
+          "hubDivPct": 27.8,
+          "topDivAirports": [
+            {
+              "code": "DEN",
+              "count": 173,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 103,
+              "isHub": true
+            },
+            {
+              "code": "COS",
+              "count": 102,
+              "isHub": false
+            },
+            {
+              "code": "ORD",
+              "count": 99,
+              "isHub": true
+            },
+            {
+              "code": "IAH",
+              "count": 74,
+              "isHub": true
+            }
+          ]
+        },
+        "2022": {
+          "count": 3686,
+          "hubDivPct": 29.0,
+          "topDivAirports": [
+            {
+              "code": "DEN",
+              "count": 289,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 210,
+              "isHub": true
+            },
+            {
+              "code": "COS",
+              "count": 208,
+              "isHub": false
+            },
+            {
+              "code": "ORD",
+              "count": 192,
+              "isHub": true
+            },
+            {
+              "code": "GJT",
+              "count": 159,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 3896,
+          "hubDivPct": 27.9,
+          "topDivAirports": [
+            {
+              "code": "DEN",
+              "count": 353,
+              "isHub": true
+            },
+            {
+              "code": "COS",
+              "count": 277,
+              "isHub": false
+            },
+            {
+              "code": "GJT",
+              "count": 214,
+              "isHub": false
+            },
+            {
+              "code": "IAD",
+              "count": 177,
+              "isHub": true
+            },
+            {
+              "code": "ORD",
+              "count": 165,
+              "isHub": true
+            }
+          ]
+        },
+        "2024": {
+          "count": 4230,
+          "hubDivPct": 29.7,
+          "topDivAirports": [
+            {
+              "code": "DEN",
+              "count": 334,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 229,
+              "isHub": true
+            },
+            {
+              "code": "ORD",
+              "count": 207,
+              "isHub": true
+            },
+            {
+              "code": "IAH",
+              "count": 172,
+              "isHub": true
+            },
+            {
+              "code": "COS",
+              "count": 150,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "DL",
+      "name": "Delta",
+      "color": "#dc2626",
+      "count": 10886,
+      "hubDivPct": 25.4,
+      "topDivAirports": [
+        {
+          "code": "ATL",
+          "count": 636,
+          "isHub": true
+        },
+        {
+          "code": "DTW",
+          "count": 583,
+          "isHub": true
+        },
+        {
+          "code": "MSP",
+          "count": 434,
+          "isHub": true
+        },
+        {
+          "code": "SLC",
+          "count": 385,
+          "isHub": true
+        },
+        {
+          "code": "JFK",
+          "count": 301,
+          "isHub": true
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 1417,
+          "hubDivPct": 26.7,
+          "topDivAirports": [
+            {
+              "code": "DTW",
+              "count": 100,
+              "isHub": true
+            },
+            {
+              "code": "ATL",
+              "count": 82,
+              "isHub": true
+            },
+            {
+              "code": "MSP",
+              "count": 75,
+              "isHub": true
+            },
+            {
+              "code": "SLC",
+              "count": 39,
+              "isHub": true
+            },
+            {
+              "code": "JFK",
+              "count": 32,
+              "isHub": true
+            }
+          ]
+        },
+        "2022": {
+          "count": 2930,
+          "hubDivPct": 25.6,
+          "topDivAirports": [
+            {
+              "code": "ATL",
+              "count": 172,
+              "isHub": true
+            },
+            {
+              "code": "DTW",
+              "count": 145,
+              "isHub": true
+            },
+            {
+              "code": "MSP",
+              "count": 117,
+              "isHub": true
+            },
+            {
+              "code": "SLC",
+              "count": 110,
+              "isHub": true
+            },
+            {
+              "code": "JFK",
+              "count": 87,
+              "isHub": true
+            }
+          ]
+        },
+        "2023": {
+          "count": 3160,
+          "hubDivPct": 25.9,
+          "topDivAirports": [
+            {
+              "code": "ATL",
+              "count": 193,
+              "isHub": true
+            },
+            {
+              "code": "DTW",
+              "count": 153,
+              "isHub": true
+            },
+            {
+              "code": "SLC",
+              "count": 137,
+              "isHub": true
+            },
+            {
+              "code": "MSP",
+              "count": 124,
+              "isHub": true
+            },
+            {
+              "code": "JFK",
+              "count": 95,
+              "isHub": true
+            }
+          ]
+        },
+        "2024": {
+          "count": 3379,
+          "hubDivPct": 24.1,
+          "topDivAirports": [
+            {
+              "code": "ATL",
+              "count": 189,
+              "isHub": true
+            },
+            {
+              "code": "DTW",
+              "count": 185,
+              "isHub": true
+            },
+            {
+              "code": "MSP",
+              "count": 118,
+              "isHub": true
+            },
+            {
+              "code": "SLC",
+              "count": 99,
+              "isHub": true
+            },
+            {
+              "code": "IAD",
+              "count": 96,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "WN",
+      "name": "Southwest",
+      "color": "#f59e0b",
+      "count": 10285,
+      "hubDivPct": 14.5,
+      "topDivAirports": [
+        {
+          "code": "LAX",
+          "count": 465,
+          "isHub": false
+        },
+        {
+          "code": "ONT",
+          "count": 351,
+          "isHub": false
+        },
+        {
+          "code": "LAS",
+          "count": 336,
+          "isHub": true
+        },
+        {
+          "code": "STL",
+          "count": 331,
+          "isHub": false
+        },
+        {
+          "code": "AUS",
+          "count": 330,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 1485,
+          "hubDivPct": 14.3,
+          "topDivAirports": [
+            {
+              "code": "ONT",
+              "count": 70,
+              "isHub": false
+            },
+            {
+              "code": "LAS",
+              "count": 59,
+              "isHub": true
+            },
+            {
+              "code": "HOU",
+              "count": 58,
+              "isHub": false
+            },
+            {
+              "code": "AUS",
+              "count": 53,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 52,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 2692,
+          "hubDivPct": 15.9,
+          "topDivAirports": [
+            {
+              "code": "LAS",
+              "count": 98,
+              "isHub": true
+            },
+            {
+              "code": "STL",
+              "count": 88,
+              "isHub": false
+            },
+            {
+              "code": "SAT",
+              "count": 86,
+              "isHub": false
+            },
+            {
+              "code": "HOU",
+              "count": 84,
+              "isHub": false
+            },
+            {
+              "code": "TPA",
+              "count": 82,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 2984,
+          "hubDivPct": 13.0,
+          "topDivAirports": [
+            {
+              "code": "STL",
+              "count": 107,
+              "isHub": false
+            },
+            {
+              "code": "TPA",
+              "count": 107,
+              "isHub": false
+            },
+            {
+              "code": "ONT",
+              "count": 98,
+              "isHub": false
+            },
+            {
+              "code": "PHX",
+              "count": 94,
+              "isHub": false
+            },
+            {
+              "code": "LAX",
+              "count": 91,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 3124,
+          "hubDivPct": 14.8,
+          "topDivAirports": [
+            {
+              "code": "LAX",
+              "count": 256,
+              "isHub": false
+            },
+            {
+              "code": "AUS",
+              "count": 125,
+              "isHub": false
+            },
+            {
+              "code": "LAS",
+              "count": 116,
+              "isHub": true
+            },
+            {
+              "code": "ONT",
+              "count": 104,
+              "isHub": false
+            },
+            {
+              "code": "STL",
+              "count": 103,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "AS",
+      "name": "Alaska",
+      "color": "#0891b2",
+      "count": 3922,
+      "hubDivPct": 44.7,
+      "topDivAirports": [
+        {
+          "code": "SEA",
+          "count": 431,
+          "isHub": true
+        },
+        {
+          "code": "SJC",
+          "count": 377,
+          "isHub": true
+        },
+        {
+          "code": "ANC",
+          "count": 356,
+          "isHub": true
+        },
+        {
+          "code": "PDX",
+          "count": 281,
+          "isHub": true
+        },
+        {
+          "code": "LAX",
+          "count": 165,
+          "isHub": true
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 492,
+          "hubDivPct": 36.4,
+          "topDivAirports": [
+            {
+              "code": "SEA",
+              "count": 46,
+              "isHub": true
+            },
+            {
+              "code": "ANC",
+              "count": 39,
+              "isHub": true
+            },
+            {
+              "code": "PDX",
+              "count": 36,
+              "isHub": true
+            },
+            {
+              "code": "BOI",
+              "count": 35,
+              "isHub": false
+            },
+            {
+              "code": "LAX",
+              "count": 26,
+              "isHub": true
+            }
+          ]
+        },
+        "2022": {
+          "count": 1098,
+          "hubDivPct": 45.3,
+          "topDivAirports": [
+            {
+              "code": "SEA",
+              "count": 153,
+              "isHub": true
+            },
+            {
+              "code": "ANC",
+              "count": 113,
+              "isHub": true
+            },
+            {
+              "code": "PDX",
+              "count": 100,
+              "isHub": true
+            },
+            {
+              "code": "SJC",
+              "count": 54,
+              "isHub": true
+            },
+            {
+              "code": "BOI",
+              "count": 49,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 1152,
+          "hubDivPct": 43.8,
+          "topDivAirports": [
+            {
+              "code": "SEA",
+              "count": 130,
+              "isHub": true
+            },
+            {
+              "code": "SJC",
+              "count": 116,
+              "isHub": true
+            },
+            {
+              "code": "ANC",
+              "count": 111,
+              "isHub": true
+            },
+            {
+              "code": "PDX",
+              "count": 63,
+              "isHub": true
+            },
+            {
+              "code": "LAX",
+              "count": 53,
+              "isHub": true
+            }
+          ]
+        },
+        "2024": {
+          "count": 1180,
+          "hubDivPct": 48.6,
+          "topDivAirports": [
+            {
+              "code": "SJC",
+              "count": 198,
+              "isHub": true
+            },
+            {
+              "code": "SEA",
+              "count": 102,
+              "isHub": true
+            },
+            {
+              "code": "ANC",
+              "count": 93,
+              "isHub": true
+            },
+            {
+              "code": "PDX",
+              "count": 82,
+              "isHub": true
+            },
+            {
+              "code": "OAK",
+              "count": 57,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "B6",
+      "name": "JetBlue",
+      "color": "#1d4ed8",
+      "count": 3654,
+      "hubDivPct": 30.8,
+      "topDivAirports": [
+        {
+          "code": "JFK",
+          "count": 509,
+          "isHub": true
+        },
+        {
+          "code": "MCO",
+          "count": 227,
+          "isHub": true
+        },
+        {
+          "code": "TPA",
+          "count": 178,
+          "isHub": false
+        },
+        {
+          "code": "FLL",
+          "count": 165,
+          "isHub": true
+        },
+        {
+          "code": "BOS",
+          "count": 156,
+          "isHub": true
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 579,
+          "hubDivPct": 28.2,
+          "topDivAirports": [
+            {
+              "code": "JFK",
+              "count": 60,
+              "isHub": true
+            },
+            {
+              "code": "SJU",
+              "count": 59,
+              "isHub": false
+            },
+            {
+              "code": "FLL",
+              "count": 37,
+              "isHub": true
+            },
+            {
+              "code": "SLC",
+              "count": 31,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 28,
+              "isHub": true
+            }
+          ]
+        },
+        "2022": {
+          "count": 1006,
+          "hubDivPct": 32.0,
+          "topDivAirports": [
+            {
+              "code": "JFK",
+              "count": 146,
+              "isHub": true
+            },
+            {
+              "code": "MCO",
+              "count": 63,
+              "isHub": true
+            },
+            {
+              "code": "TPA",
+              "count": 51,
+              "isHub": false
+            },
+            {
+              "code": "BOS",
+              "count": 49,
+              "isHub": true
+            },
+            {
+              "code": "FLL",
+              "count": 43,
+              "isHub": true
+            }
+          ]
+        },
+        "2023": {
+          "count": 1198,
+          "hubDivPct": 30.2,
+          "topDivAirports": [
+            {
+              "code": "JFK",
+              "count": 181,
+              "isHub": true
+            },
+            {
+              "code": "TPA",
+              "count": 71,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 67,
+              "isHub": true
+            },
+            {
+              "code": "RSW",
+              "count": 55,
+              "isHub": false
+            },
+            {
+              "code": "PBI",
+              "count": 49,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 871,
+          "hubDivPct": 32.1,
+          "topDivAirports": [
+            {
+              "code": "JFK",
+              "count": 122,
+              "isHub": true
+            },
+            {
+              "code": "MCO",
+              "count": 69,
+              "isHub": true
+            },
+            {
+              "code": "RIC",
+              "count": 47,
+              "isHub": false
+            },
+            {
+              "code": "FLL",
+              "count": 46,
+              "isHub": true
+            },
+            {
+              "code": "PBI",
+              "count": 42,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "NK",
+      "name": "Spirit",
+      "color": "#ca8a04",
+      "count": 1659,
+      "hubDivPct": 20.9,
+      "topDivAirports": [
+        {
+          "code": "TPA",
+          "count": 161,
+          "isHub": false
+        },
+        {
+          "code": "MCO",
+          "count": 119,
+          "isHub": true
+        },
+        {
+          "code": "SJU",
+          "count": 110,
+          "isHub": false
+        },
+        {
+          "code": "RSW",
+          "count": 107,
+          "isHub": false
+        },
+        {
+          "code": "FLL",
+          "count": 104,
+          "isHub": true
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 225,
+          "hubDivPct": 21.3,
+          "topDivAirports": [
+            {
+              "code": "SJU",
+              "count": 33,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 18,
+              "isHub": true
+            },
+            {
+              "code": "TPA",
+              "count": 13,
+              "isHub": false
+            },
+            {
+              "code": "ACY",
+              "count": 12,
+              "isHub": false
+            },
+            {
+              "code": "AUS",
+              "count": 12,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 406,
+          "hubDivPct": 20.0,
+          "topDivAirports": [
+            {
+              "code": "SJU",
+              "count": 43,
+              "isHub": false
+            },
+            {
+              "code": "TPA",
+              "count": 38,
+              "isHub": false
+            },
+            {
+              "code": "RSW",
+              "count": 32,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 30,
+              "isHub": true
+            },
+            {
+              "code": "FLL",
+              "count": 26,
+              "isHub": true
+            }
+          ]
+        },
+        "2023": {
+          "count": 552,
+          "hubDivPct": 21.7,
+          "topDivAirports": [
+            {
+              "code": "TPA",
+              "count": 76,
+              "isHub": false
+            },
+            {
+              "code": "RSW",
+              "count": 49,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 48,
+              "isHub": true
+            },
+            {
+              "code": "FLL",
+              "count": 42,
+              "isHub": true
+            },
+            {
+              "code": "BNA",
+              "count": 17,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 476,
+          "hubDivPct": 20.4,
+          "topDivAirports": [
+            {
+              "code": "TPA",
+              "count": 34,
+              "isHub": false
+            },
+            {
+              "code": "IAH",
+              "count": 29,
+              "isHub": false
+            },
+            {
+              "code": "FLL",
+              "count": 28,
+              "isHub": true
+            },
+            {
+              "code": "SJU",
+              "count": 24,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 23,
+              "isHub": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "G4",
+      "name": "Allegiant",
+      "color": "#7c3aed",
+      "count": 1186,
+      "hubDivPct": 25.5,
+      "topDivAirports": [
+        {
+          "code": "SFB",
+          "count": 121,
+          "isHub": true
+        },
+        {
+          "code": "PIE",
+          "count": 102,
+          "isHub": true
+        },
+        {
+          "code": "LAS",
+          "count": 79,
+          "isHub": true
+        },
+        {
+          "code": "PGD",
+          "count": 65,
+          "isHub": false
+        },
+        {
+          "code": "FLL",
+          "count": 46,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 160,
+          "hubDivPct": 30.6,
+          "topDivAirports": [
+            {
+              "code": "SFB",
+              "count": 23,
+              "isHub": true
+            },
+            {
+              "code": "LAS",
+              "count": 18,
+              "isHub": true
+            },
+            {
+              "code": "PIE",
+              "count": 8,
+              "isHub": true
+            },
+            {
+              "code": "TYS",
+              "count": 7,
+              "isHub": false
+            },
+            {
+              "code": "AZA",
+              "count": 7,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 335,
+          "hubDivPct": 25.7,
+          "topDivAirports": [
+            {
+              "code": "PIE",
+              "count": 36,
+              "isHub": true
+            },
+            {
+              "code": "SFB",
+              "count": 29,
+              "isHub": true
+            },
+            {
+              "code": "LAS",
+              "count": 21,
+              "isHub": true
+            },
+            {
+              "code": "SRQ",
+              "count": 20,
+              "isHub": false
+            },
+            {
+              "code": "FLL",
+              "count": 18,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 354,
+          "hubDivPct": 25.7,
+          "topDivAirports": [
+            {
+              "code": "PIE",
+              "count": 37,
+              "isHub": true
+            },
+            {
+              "code": "SFB",
+              "count": 29,
+              "isHub": true
+            },
+            {
+              "code": "LAS",
+              "count": 25,
+              "isHub": true
+            },
+            {
+              "code": "PGD",
+              "count": 21,
+              "isHub": false
+            },
+            {
+              "code": "BNA",
+              "count": 17,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 337,
+          "hubDivPct": 22.6,
+          "topDivAirports": [
+            {
+              "code": "SFB",
+              "count": 40,
+              "isHub": true
+            },
+            {
+              "code": "PIE",
+              "count": 21,
+              "isHub": true
+            },
+            {
+              "code": "PGD",
+              "count": 20,
+              "isHub": false
+            },
+            {
+              "code": "FLL",
+              "count": 17,
+              "isHub": false
+            },
+            {
+              "code": "DSM",
+              "count": 16,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "F9",
+      "name": "Frontier",
+      "color": "#16a34a",
+      "count": 1012,
+      "hubDivPct": 30.5,
+      "topDivAirports": [
+        {
+          "code": "MCO",
+          "count": 77,
+          "isHub": true
+        },
+        {
+          "code": "PHL",
+          "count": 74,
+          "isHub": true
+        },
+        {
+          "code": "DEN",
+          "count": 74,
+          "isHub": true
+        },
+        {
+          "code": "TPA",
+          "count": 71,
+          "isHub": false
+        },
+        {
+          "code": "SJU",
+          "count": 59,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 111,
+          "hubDivPct": 27.9,
+          "topDivAirports": [
+            {
+              "code": "COS",
+              "count": 9,
+              "isHub": false
+            },
+            {
+              "code": "DEN",
+              "count": 9,
+              "isHub": true
+            },
+            {
+              "code": "LAS",
+              "count": 9,
+              "isHub": true
+            },
+            {
+              "code": "MCO",
+              "count": 7,
+              "isHub": true
+            },
+            {
+              "code": "ONT",
+              "count": 6,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 281,
+          "hubDivPct": 28.1,
+          "topDivAirports": [
+            {
+              "code": "SJU",
+              "count": 43,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 25,
+              "isHub": true
+            },
+            {
+              "code": "DEN",
+              "count": 21,
+              "isHub": true
+            },
+            {
+              "code": "TPA",
+              "count": 21,
+              "isHub": false
+            },
+            {
+              "code": "MIA",
+              "count": 20,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 311,
+          "hubDivPct": 29.9,
+          "topDivAirports": [
+            {
+              "code": "PHL",
+              "count": 30,
+              "isHub": true
+            },
+            {
+              "code": "TPA",
+              "count": 30,
+              "isHub": false
+            },
+            {
+              "code": "MCO",
+              "count": 25,
+              "isHub": true
+            },
+            {
+              "code": "DEN",
+              "count": 20,
+              "isHub": true
+            },
+            {
+              "code": "MIA",
+              "count": 18,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 309,
+          "hubDivPct": 34.3,
+          "topDivAirports": [
+            {
+              "code": "PHL",
+              "count": 30,
+              "isHub": true
+            },
+            {
+              "code": "DEN",
+              "count": 24,
+              "isHub": true
+            },
+            {
+              "code": "MCO",
+              "count": 20,
+              "isHub": true
+            },
+            {
+              "code": "LAS",
+              "count": 16,
+              "isHub": true
+            },
+            {
+              "code": "CVG",
+              "count": 15,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "HA",
+      "name": "Hawaiian",
+      "color": "#9333ea",
+      "count": 287,
+      "hubDivPct": 56.1,
+      "topDivAirports": [
+        {
+          "code": "HNL",
+          "count": 142,
+          "isHub": true
+        },
+        {
+          "code": "LAX",
+          "count": 43,
+          "isHub": false
+        },
+        {
+          "code": "SFO",
+          "count": 20,
+          "isHub": false
+        },
+        {
+          "code": "OGG",
+          "count": 19,
+          "isHub": true
+        },
+        {
+          "code": "KOA",
+          "count": 13,
+          "isHub": false
+        }
+      ],
+      "yearly": {
+        "2021": {
+          "count": 33,
+          "hubDivPct": 45.5,
+          "topDivAirports": [
+            {
+              "code": "HNL",
+              "count": 14,
+              "isHub": true
+            },
+            {
+              "code": "LAX",
+              "count": 8,
+              "isHub": false
+            },
+            {
+              "code": "SFO",
+              "count": 3,
+              "isHub": false
+            },
+            {
+              "code": "KOA",
+              "count": 3,
+              "isHub": false
+            },
+            {
+              "code": "PDX",
+              "count": 1,
+              "isHub": false
+            }
+          ]
+        },
+        "2022": {
+          "count": 84,
+          "hubDivPct": 58.3,
+          "topDivAirports": [
+            {
+              "code": "HNL",
+              "count": 42,
+              "isHub": true
+            },
+            {
+              "code": "LAX",
+              "count": 11,
+              "isHub": false
+            },
+            {
+              "code": "OGG",
+              "count": 7,
+              "isHub": true
+            },
+            {
+              "code": "SFO",
+              "count": 6,
+              "isHub": false
+            },
+            {
+              "code": "KOA",
+              "count": 3,
+              "isHub": false
+            }
+          ]
+        },
+        "2023": {
+          "count": 82,
+          "hubDivPct": 52.4,
+          "topDivAirports": [
+            {
+              "code": "HNL",
+              "count": 38,
+              "isHub": true
+            },
+            {
+              "code": "LAX",
+              "count": 12,
+              "isHub": false
+            },
+            {
+              "code": "SFO",
+              "count": 8,
+              "isHub": false
+            },
+            {
+              "code": "OGG",
+              "count": 5,
+              "isHub": true
+            },
+            {
+              "code": "ONT",
+              "count": 4,
+              "isHub": false
+            }
+          ]
+        },
+        "2024": {
+          "count": 88,
+          "hubDivPct": 61.4,
+          "topDivAirports": [
+            {
+              "code": "HNL",
+              "count": 48,
+              "isHub": true
+            },
+            {
+              "code": "LAX",
+              "count": 12,
+              "isHub": false
+            },
+            {
+              "code": "OGG",
+              "count": 6,
+              "isHub": true
+            },
+            {
+              "code": "ONT",
+              "count": 5,
+              "isHub": false
+            },
+            {
+              "code": "OAK",
+              "count": 4,
+              "isHub": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
