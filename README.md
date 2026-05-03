@@ -77,6 +77,19 @@ For each airline:
 * % of diverted flights routed to airlines' **hub airports**
 * Top **diverted-to airports**
 
+In this dashboard, each airline's hub airports include primary hubs, hubs, and operating bases:
+* American (AA): CLT, ORD, DFW, LAX, MIA, JFK, LGA, PHL, PHX, DCA
+* Delta (DL): ATL, BOS, DTW, LAX, MSP, JFK, LGA, SLC, SEA
+* United (UA): ORD, DEN, IAH, LAX, EWR, SFO, IAD
+* Southwest (WN): ATL, BWI, MDW, DAL, DEN, LAS
+* Alaska (AS): ANC, SEA, PDX, LAX, SFO, SAN, SJC
+* JetBlue (B6): JFK, BOS, FLL, MCO, LAX
+* Frontier (F9): DEN, ATL, ORD, LAS, MCO, PHL
+* Allegiant (G4): LAS, SFB, PIE
+* Hawaiian (HA): HNL, OGG
+* Spirit (NK): FLL, MCO, DTW, LAS, ORD, DFW
+
+
 **Interpretation:**
 
 * Highlights differences in:
