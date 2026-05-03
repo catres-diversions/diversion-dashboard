@@ -109,7 +109,7 @@ For each airline:
 
 For questions or feedback, please contact CATRes Diversions Project:
 
-Jasmine Siyu Wu (jsiyuwu@upenn.edu)
-Jing Xu (jing-xu@berkeley.edu)
-Jun Luu (jjluu@upenn.edu)
+* Jasmine Siyu Wu (jsiyuwu@upenn.edu)
+* Jing Xu (jing-xu@berkeley.edu)
+* Jun Luu (jjluu@upenn.edu)
 
