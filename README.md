@@ -122,7 +122,7 @@ In this dashboard, each airline's hub airports include primary hubs, hubs, and o
 
 For questions or feedback, please contact CATRes Diversions Project:
 
-* Jasmine Siyu Wu (jsiyuwu@upenn.edu)
-* Jing Xu (jing-xu@berkeley.edu)
-* Jun Luu (jjluu@upenn.edu)
+* Jasmine Siyu Wu ([jsiyuwu@upenn.edu](mailto:jsiyuwu@upenn.edu))
+* Jing Xu ([jing-xu@berkeley.edu](mailto:jing-xu@berkeley.edu))
+* Jun Luu ([jjluu@upenn.edu](mailto:jjluu@upenn.edu))
 
