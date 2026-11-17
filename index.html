@@ -222,10 +222,14 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 // mapView controls whether diverted-to airports or planned destination airports are shown.
 // Bubble size and color reflect actual per-year counts from the JSON.
 const map = L.map('map', { center: [38.5, -96], zoom: 4, zoomControl: true });
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors',
-  maxZoom: 19
-}).addTo(map);
+L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  {
+    attribution: 'Tiles &copy; Esri',
+    maxZoom: 16,
+    opacity: 1
+  }
+).addTo(map);
 let mapMarkers = L.layerGroup().addTo(map);
 
 function setMapView(view) {
